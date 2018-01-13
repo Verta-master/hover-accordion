@@ -1,8 +1,5 @@
 body {
   font-family: "Open Sans", "Arial", sans-serif;
-  font-size: 16px;
-  line-height: 1.2;
-  font-weight: 400;
 }
 
 .accordion {
@@ -37,18 +34,41 @@ body {
   transform: translate(-50%, -50%);
   max-width: 100%;
   font-size: 24px;
+  line-height: 1.2;
+  margin: 0;
+  padding: 5px 10px;
   text-align: center;
   color: #fff;
   text-transform: uppercase;
   text-decoration: none;
 }
 
-.title {
-  font-size: 48px;
+@keyframes rotateOutUpLeft {
+  from {
+    transform-origin: left bottom;
+  }
+
+  to {
+    transform-origin: left bottom;
+    transform: rotate3d(0, 0, 1, -90deg);
+  }
+}
+
+//.rotateOutUpLeft {
+//  animation-duration: 1s;
+//  animation-fill-mode: both;
+//  animation-name: rotateOutUpLeft;
+//}
+
+.accordion li h2.title {
+//  font-size: 48px;
   text-decoration: underline;
 }
 
-.title-rotated {
-  font-size: 24px;
+.accordion li h2.title-rotated {
+//  font-size: 24px;
   text-decoration: none;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-name: rotateOutUpLeft;
 }
