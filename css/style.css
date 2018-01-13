@@ -4,32 +4,34 @@ body {
   line-height: 1.2;
   font-weight: 400;
 }
-
 .accordion {
   list-style: none;
   width: 100%;
   padding: 0;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
 }
-
 .accordion li {
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
   position: relative;
   overflow: hidden;
   cursor: pointer;
   box-shadow: 1px 3px 15px #555;
 }
-
 .accordion li img {
   display: block;
   height: 100%;
   width: auto;
 }
-
 .accordion li h2 {
   position: absolute;
   top: 50%;
@@ -42,12 +44,10 @@ body {
   text-transform: uppercase;
   text-decoration: none;
 }
-
 .title {
   font-size: 48px;
   text-decoration: underline;
 }
-
 .title-rotated {
   font-size: 24px;
   text-decoration: none;
