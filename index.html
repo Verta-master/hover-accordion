@@ -13,6 +13,7 @@
       <img src="img/slide1.jpg" alt="Slide1">
       <div class="info">
         <h2>Заголовок 1</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In delectus, necessitatibus labore natus aut ab, iste quia voluptas asperiores laboriosam tempore! Deleniti, minima sint ipsa repellat cum reprehenderit magni ipsam.</p>
       </div>
     </li>
     <li>
@@ -31,6 +32,7 @@
       <img src="img/slide4.jpg" alt="Slide4">
       <div class="info">
         <h2>Заголовок 4</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
     </li>
     <li>
@@ -43,7 +45,9 @@
   
   <script src="js/jquery-3.2.1.min.js"></script>
   <script>
-    var slideNumber = 5;
+    var list = document.querySelector('#accordion');
+    var slideNumber = list.childElementCount;
+    console.log(slideNumber);
     var slideWidth = (100 / slideNumber) + '%';
     var slideHeight = '480px';
     var slideOpened = '80%';
@@ -57,22 +61,22 @@
         function () {
           var $this = $(this);
           $this.animate({'width': slideOpened}, 500);
-          $('h2').not(this).addClass('title-rotated');
           $('h2', $this).animate({fontSize: '48px'});
-          $('h2', $this).removeClass('title-rotated').addClass('title');
+          $('div.info').not(this).addClass('rotated');
+          $('div.info', $this).removeClass('rotated').addClass('increase');
         },
         function () {
           var $this = $(this);
           $this.animate({'width': slideWidth}, 500);
           $('h2', $this).animate({fontSize: '24px'});
-          $('h2', $this).removeClass('title').removeClass('title-rotated');
+          $('div.info', $this).removeClass('increase').removeClass('rotated');
         }
       );
       $('#accordion').hover(
         function () {},
         function () {
           var $this = $(this);
-          $('li h2', $this).removeClass('title-rotated');
+          $('div.info', $this).removeClass('rotated');
         }
       );
     });

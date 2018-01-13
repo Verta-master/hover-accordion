@@ -35,10 +35,20 @@ div.info {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 5px;
+  padding: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #fff;
+  box-sizing: border-box;
+  
+  p {
+    display: block;
+    text-align: center;
+    max-width: 100%;
+    font-size: 14px;
+  }
 }
 
 .accordion li h2 {
@@ -75,18 +85,32 @@ div.info {
   }
 }
 
-.accordion li h2.title {
-  text-decoration: underline;
+div.info.increase {
   animation-duration: 0.5s;
   animation-fill-mode: both;
   animation-name: rotateInDownLeft;
+  
+  h2 {
+    text-decoration: underline;
+  }
+  
+  p {
+    display: block;
+  }
 }
 
-.accordion li h2.title-rotated {
-  text-decoration: none;
+div.info.rotated {
   animation-duration: 0.5s;
   animation-fill-mode: both;
   animation-name: rotateOutUpLeft;
+  
+  h2 {
+    text-decoration: none;
+  }
+  
+  p {
+    display: none;
+  }
 }
 
 @media (max-width: 1200px) {
