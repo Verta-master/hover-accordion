@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta  name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hover-accordion</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=cyrillic">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+  <ul class="accordion" id="accordion">
+    <li>
+      <img src="img/slide1.jpg" alt="Slide1">
+      <h2>Заголовок 1</h2>
+    </li>
+    <li>
+      <img src="img/slide2.jpg" alt="Slide2">
+      <h2>Заголовок 2</h2>
+    </li>
+    <li>
+      <img src="img/slide3.jpg" alt="Slide3">
+      <h2>Заголовок 3</h2>
+    </li>
+    <li>
+      <img src="img/slide4.jpg" alt="Slide4">
+      <h2>Заголовок 4</h2>
+    </li>
+    <li>
+      <img src="img/slide5.jpg" alt="Slide5">
+      <h2>Заголовок 5</h2>
+    </li>
+  </ul>
+  
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script>
+    var slideNumber = 5;
+    var slideWidth = (100 / slideNumber) + '%';
+    var slideHeight = '480px';
+    var slideOpened = '80%';
+    var slides = document.querySelectorAll('.accordion li');
+    [].forEach.call(slides, function(item) {
+      item.style.width = slideWidth;
+      item.style.height = slideHeight;
+    });
+    $(function() {
+      $('#accordion > li').hover(
+        function () {
+          var $this = $(this);
+          $this.animate({'width': slideOpened}, 500);
+          $('h2', $this).animate({fontSize: '48px'})
+//          $('.heading',$this).stop(true,true).fadeOut();
+//          $('.bgDescription',$this).stop(true,true).slideDown(500);
+//          $('.description',$this).stop(true,true).fadeIn();
+        },
+        function () {
+          var $this = $(this);
+          $this.animate({'width': slideWidth}, 500);
+          $('h2', $this).animate({fontSize: '24px'})
+//          $('.heading',$this).stop(true,true).fadeIn();
+//          $('.description',$this).stop(true,true).fadeOut(500);
+//          $('.bgDescription',$this).stop(true,true).slideUp(700);
+        }
+      );
+    });
+  </script>
+</body>
+</html>
