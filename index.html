@@ -47,18 +47,18 @@
         function () {
           var $this = $(this);
           $this.animate({'width': slideOpened}, 500);
-          $('h2', $this).animate({fontSize: '48px'})
-//          $('.heading',$this).stop(true,true).fadeOut();
-//          $('.bgDescription',$this).stop(true,true).slideDown(500);
-//          $('.description',$this).stop(true,true).fadeIn();
+          $('h2', $this).animate({fontSize: '48px'});
+//          $('h2').not(this).animate({fontSize: '24px'});
+          $('h2').not(this).addClass('title-rotated');
+          $('h2', $this).removeClass('title-rotated').addClass('title');
         },
         function () {
           var $this = $(this);
           $this.animate({'width': slideWidth}, 500);
-          $('h2', $this).animate({fontSize: '24px'})
-//          $('.heading',$this).stop(true,true).fadeIn();
-//          $('.description',$this).stop(true,true).fadeOut(500);
-//          $('.bgDescription',$this).stop(true,true).slideUp(700);
+          $('h2', $this).animate({fontSize: '24px'});
+//          $('h2', $this).removeClass('title').addClass('title-rotated');
+          $('h2', $this).removeClass('title').removeClass('title-rotated');
+//          $('h2').not(this).removeClass('title').removeClass('title-rotated');
         }
       );
     });
