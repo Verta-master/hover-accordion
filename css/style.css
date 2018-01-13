@@ -29,16 +29,25 @@ body {
   height: 100%;
   width: auto;
 }
-.accordion li h2 {
+div.info {
+  width: 100%;
+  height: 100%;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  padding: 5px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+.accordion li h2 {
   max-width: 100%;
   font-size: 24px;
   line-height: 1.2;
   margin: 0;
-  padding: 5px 10px;
   text-align: center;
   color: #fff;
   text-transform: uppercase;
@@ -46,15 +55,28 @@ body {
 }
 @keyframes rotateOutUpLeft {
   from {
-    transform-origin: left bottom;
+    transform-origin: center;
   }
   to {
-    transform-origin: left bottom;
+    transform-origin: center;
     transform: rotate3d(0, 0, 1, -90deg);
+  }
+}
+@keyframes rotateInDownLeft {
+  from {
+    transform-origin: center;
+    transform: rotate3d(0, 0, 1, -90deg);
+  }
+  to {
+    transform-origin: center;
+    transform: none;
   }
 }
 .accordion li h2.title {
   text-decoration: underline;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-name: rotateInDownLeft;
 }
 .accordion li h2.title-rotated {
   text-decoration: none;
