@@ -66,6 +66,7 @@
           $this.animate({'width': slideWidth}, 500);
           $('h2', $this).animate({fontSize: '24px'});
           $('h2', $this).removeClass('title').removeClass('title-rotated');
+          $('h2').not(this).removeClass('title-rotated');
         }
       );
     });
