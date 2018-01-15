@@ -5,40 +5,26 @@
   <meta  name="viewport" content="width=device-width,initial-scale=1">
   <title>Hover-accordion</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=cyrillic">
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <ul class="accordion" id="accordion">
     <li>
-      <img src="img/slide1.jpg" alt="Slide1">
+      <img src="img/1.jpg" alt="Slide1">
       <div class="info">
         <h2>Заголовок 1</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In delectus, necessitatibus labore natus aut ab, iste quia voluptas asperiores laboriosam tempore! Deleniti, minima sint ipsa repellat cum reprehenderit magni ipsam.</p>
       </div>
     </li>
     <li>
-      <img src="img/slide2.jpg" alt="Slide2">
+      <img src="img/2.jpg" alt="Slide2">
       <div class="info">
         <h2>Заголовок 2</h2>
       </div>
     </li>
     <li>
-      <img src="img/slide3.jpg" alt="Slide3">
+      <img src="img/3.jpg" alt="Slide3">
       <div class="info">
         <h2>Заголовок 3</h2>
-      </div>
-    </li>
-    <li>
-      <img src="img/slide4.jpg" alt="Slide4">
-      <div class="info">
-        <h2>Заголовок 4</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-      </div>
-    </li>
-    <li>
-      <img src="img/slide5.jpg" alt="Slide5">
-      <div class="info">
-        <h2>Заголовок 5</h2>
       </div>
     </li>
   </ul>
@@ -47,9 +33,10 @@
   <script>
     var list = document.querySelector('#accordion');
     var slideNumber = list.childElementCount;
+    console.log(slideNumber);
     var slideWidth = (100 / slideNumber) + '%';
-    var slideHeight = '480px';    //высота слайдера
-    var slideOpened = '49%';      //настройка ширины слайда при наведении
+    var slideHeight = '480px';
+    var slideOpened = '49%';  //настройка ширины слайда при наведении
     var slides = document.querySelectorAll('.accordion li');
     [].forEach.call(slides, function(item) {
       item.style.width = slideWidth;
@@ -60,7 +47,8 @@
         function () {
           var $this = $(this);
           $this.animate({'width': slideOpened}, 500);
-          $this.removeClass('overlay');
+		  $this.removeClass('overlay');
+		  (not($this)).addClass('overlay');
           $('h2', $this).animate({fontSize: '48px'});
           $('div.info').not(this).addClass('rotated');
           $('div.info', $this).removeClass('rotated').addClass('increase');
@@ -68,21 +56,17 @@
         function () {
           var $this = $(this);
           $this.animate({'width': slideWidth}, 500);
-          $this.addClass('overlay');
+		  $this.addClass('overlay');
           $('h2', $this).animate({fontSize: '24px'});
           $('div.info', $this).removeClass('increase').removeClass('rotated');
         }
       );
       $('#accordion').hover(
-        function () {
-          var $this = $(this);
-          $('li', $this).addClass('overlay');
-          $('li:hover', $this).removeClass('overlay');
-        },
+        function () {},
         function () {
           var $this = $(this);
           $('div.info', $this).removeClass('rotated');
-          $('li', $this).removeClass('overlay');
+		  $('li', $this).removeClass('overlay');
         }
       );
     });
