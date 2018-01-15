@@ -26,6 +26,20 @@ body {
   cursor: pointer;
   box-shadow: 1px 3px 15px #555;
 }
+.accordion li::before {
+  display: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+.accordion li.overlay::before {
+  display: block;
+}
 .accordion li img {
   display: block;
   height: 100%;

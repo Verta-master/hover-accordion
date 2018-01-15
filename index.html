@@ -47,10 +47,9 @@
   <script>
     var list = document.querySelector('#accordion');
     var slideNumber = list.childElementCount;
-    console.log(slideNumber);
     var slideWidth = (100 / slideNumber) + '%';
-    var slideHeight = '480px';
-    var slideOpened = '80%';
+    var slideHeight = '480px';    //высота слайдера
+    var slideOpened = '49%';      //настройка ширины слайда при наведении
     var slides = document.querySelectorAll('.accordion li');
     [].forEach.call(slides, function(item) {
       item.style.width = slideWidth;
@@ -61,6 +60,7 @@
         function () {
           var $this = $(this);
           $this.animate({'width': slideOpened}, 500);
+          $this.removeClass('overlay');
           $('h2', $this).animate({fontSize: '48px'});
           $('div.info').not(this).addClass('rotated');
           $('div.info', $this).removeClass('rotated').addClass('increase');
@@ -68,15 +68,21 @@
         function () {
           var $this = $(this);
           $this.animate({'width': slideWidth}, 500);
+          $this.addClass('overlay');
           $('h2', $this).animate({fontSize: '24px'});
           $('div.info', $this).removeClass('increase').removeClass('rotated');
         }
       );
       $('#accordion').hover(
-        function () {},
+        function () {
+          var $this = $(this);
+          $('li', $this).addClass('overlay');
+          $('li:hover', $this).removeClass('overlay');
+        },
         function () {
           var $this = $(this);
           $('div.info', $this).removeClass('rotated');
+          $('li', $this).removeClass('overlay');
         }
       );
     });
